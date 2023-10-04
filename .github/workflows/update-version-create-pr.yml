@@ -31,7 +31,8 @@ jobs:
       - name: Update the version
         id: update_version
         run: |
-          echo "version=$(yarn version --${{ github.event.inputs.version }} --no-git-tag-version)" >> $GITHUB_OUTPUT
+          yarn version --${{ github.event.inputs.version }} --no-git-tag-version
+          echo "version=v$(npm pkg get version | tr -d '\"')" >> $GITHUB_OUTPUT
       - name: Update Changelog
         id: update_changelog
         run: |
