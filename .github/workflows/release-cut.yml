@@ -44,6 +44,9 @@ jobs:
         run: |
           echo "$GITHUB_TOKEN"
           git fetch
+          git checkout master
+          echo 'LAST_COMMIT'
+          echo 'TIP_OF_MAIN'
         env:
           GITHUB_TOKEN: ${{ secrets.GENERAL_ACCESS_TOKEN }}
       # - name: Create Pull Request
