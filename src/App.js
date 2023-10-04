@@ -17,6 +17,14 @@ function App() {
         >
           Learn More
         </a>
+        <a
+          className="App-link"
+          href="https://gateway.boba.network/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Gateway Prod
+        </a>
       </header>
     </div>
   );
