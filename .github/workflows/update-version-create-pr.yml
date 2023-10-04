@@ -31,6 +31,7 @@ jobs:
       - name: Update the version
         id: update_version
         run: |
+          git checkout main
           yarn version --${{ github.event.inputs.version }} --no-git-tag-version
           echo "version=v$(npm pkg get version | tr -d '\"')" >> $GITHUB_OUTPUT
       - name: Update Changelog
@@ -45,4 +46,4 @@ jobs:
           branch: release/${{ steps.update_version.outputs.version }}
           title: "Release: ${{ steps.update_version.outputs.version }} Pull Request"
           body: "This pull request contains the updated package.json with the new release version"
-          base: main
+          base: master
