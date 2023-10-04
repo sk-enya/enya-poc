@@ -42,14 +42,14 @@ jobs:
           rm commits.txt
           #git push origin release/${{ github.event.inputs.target_version }}
         env:
-          GH_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          GH_TOKEN: ${{ secrets.GENERAL_ACCESS_TOKEN }}
 
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v5
         with:
           base: master
-          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          token: ${{ secrets.GENERAL_ACCESS_TOKEN }}
           commit-message: New release ${{ github.event.inputs.target_version }}
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
