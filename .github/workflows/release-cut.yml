@@ -43,6 +43,7 @@ jobs:
         #   # #git push origin release/${{ github.event.inputs.target_version }}
         run: |
           echo "$GITHUB_TOKEN"
+          git fetch
         env:
           GITHUB_TOKEN: ${{ secrets.GENERAL_ACCESS_TOKEN }}
       # - name: Create Pull Request
