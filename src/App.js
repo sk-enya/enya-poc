@@ -1,15 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
 
 function App() {
+  const [state,setState] = useState('')
+
   return (
     <div className="App">
       <header className="App-header">
+        <h2>{state}</h2>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           BOBA Gateway POC
         </p>
-        <button type="button" onClick={() => {alert('Trigger connect modal')}}>Connect to MM</button>
+        <button type="button" onClick={() => {setState(`Hello at ${new Date()}`)}}>Connect to MM</button>
         <a
           className="App-link"
           href="https://docs.boba.network/"
