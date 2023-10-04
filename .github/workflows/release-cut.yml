@@ -45,7 +45,7 @@ jobs:
           echo "$GITHUB_TOKEN"
           git fetch
           git checkout master
-          LAST_COMMIT_1=$(gh api  -H "Accept: application/vnd.github+json"   -H "X-GitHub-Api-Version: 2022-11-28"   "/repos/sk-enya/enya-poc/pulls/${{ github.event.inputs.last_release_pr }}/commits?per_page=400" --jq='.[-1].commit.message')
+          LAST_COMMIT_1=$(gh api  -H "Accept: application/vnd.github+json"   -H "X-GitHub-Api-Version: 2022-11-28"   /repos/sk-enya/enya-poc/pulls/${{ github.event.inputs.last_release_pr }}/commits?per_page=400 --jq='.[-1].commit.message')
           echo 'LAST_COMMIT_1'
           echo $LAST_COMMIT_1
           LAST_COMMIT=$(gh api  -H "Accept: application/vnd.github+json"   -H "X-GitHub-Api-Version: 2022-11-28"   "/repos/sk-enya/enya-poc/pulls/${{ github.event.inputs.last_release_pr }}/commits?per_page=400" --jq='.[-1].commit.message' | grep -o -E -e "[0-9a-f]{40}")
