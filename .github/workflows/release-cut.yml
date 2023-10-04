@@ -42,7 +42,7 @@ jobs:
           rm commits.txt
           #git push origin release/${{ github.event.inputs.target_version }}
         env:
-          GH_TOKEN: ${{ secrets.GENERAL_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GENERAL_ACCESS_TOKEN }}
 
       - name: Create Pull Request
         id: cpr
