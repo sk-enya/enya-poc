@@ -9,6 +9,7 @@ function App() {
         <p>
           BOBA Gateway POC
         </p>
+        <button type="button" onClick={() => {alert('Trigger connect modal')}}>Connect to MM</button>
         <a
           className="App-link"
           href="https://docs.boba.network/"
@@ -23,7 +24,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Gateway Prod
+          Gateway Prod !!
         </a>
       </header>
     </div>
