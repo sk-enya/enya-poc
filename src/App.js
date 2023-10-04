@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          BOBA Network POC
+          BOBA Gateway POC
         </p>
         <a
           className="App-link"
