@@ -23,15 +23,15 @@ jobs:
         with:
           node-version: "16.x"
       - name: Install dependencies
-        run: npm install
+        run: yarn install
       - name: Set up Git
         run: |
-            git config user.name "Your GitHub User Name"
-            git config user.email "Your GitHub User Email"
+          git config --global user.name noreply@github.com
+          git config --global user.email ${{ github.actor }}@users.noreply.github.com
       - name: Update the version
         id: update_version
         run: |
-          echo "version=$(npm version ${{ github.event.inputs.version }} --no-git-tag-version)" >> $GITHUB_OUTPUT
+          echo "version=$(yarn version --${{ github.event.inputs.version }} --no-git-tag-version)" >> $GITHUB_OUTPUT
       - name: Update Changelog
         id: update_changelog
         run: |
@@ -41,7 +41,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: release/${{ steps.update_version.outputs.version }}
-          title: "Release: ${{ steps.update_version.outputs.version }} Pull Request"
+          branch: release/v${{ steps.update_version.outputs.version }}
+          title: "Release: v${{ steps.update_version.outputs.version }} Pull Request"
           body: "This pull request contains the updated package.json with the new release version"
           base: master
