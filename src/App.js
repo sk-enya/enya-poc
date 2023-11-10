@@ -11,7 +11,7 @@ function App() {
         <h2>{state}</h2>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          BOBA Gateway POC
+          Boba Gateway Test for new release change.
         </p>
         <button type="button" onClick={() => {setState(`Hello at ${new Date()}`)}}>Connect to MM</button>
         <a
